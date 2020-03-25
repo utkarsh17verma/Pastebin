@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style type="text/css">
+            body a{
+                color: white;
+            }
+            body a:hover{
+                color: white;
+                text-decoration: none;
+            }
+            .navbar{
+                padding: 10px 150px;
+            }
+            .container{
+                padding: 30px 20px;
+                margin:50px auto;
+                background: white;
+                box-shadow: -3px -3px 5px #ffffff70, 3px 3px 15px #00000070;
+                border-radius:25px;
+            }
+            h1{
+                background-color: blanchedalmond;
+                border-radius: 10px;
+                padding-left: 5px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand navbar-light bg-light fixed-top">
+		  <a class="navbar-brand">PasteBin</a>
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			  <li class="nav-item active">
+                  <a class="nav-link" href="/">Home</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="/pastes">View All</a>
+			  </li>
+			</ul>
+                <button class="btn btn-success" type="submit"><a href="/admin">Admin</a></button>
+		</nav>
+        <div class="container">
+        <h1>Create new Paste here:-</h1> 
+
+        <form action="" method="POST">
+            {% csrf_token %} 
+            <table> 
+                {{ form.as_table }} 
+            </table> 
+
+            <button class="btn btn-success" type="submit" name="create" value="Create">Create</button>
+        </form>
+            <br>
+
+            <button type="button" class="btn btn-primary"><a href="{% url 'pastebin_paste_list' %}">View All</a></button>
+        </div>
+    </body>
+</html>
